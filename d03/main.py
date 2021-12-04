@@ -52,7 +52,7 @@ while (len(o2_list) > 1):
 # Find co2 rating
 idx = 0
 co2_list = binary_digits
-while(len(co2_list) > 1):
+while (len(co2_list) > 1):
     bit_co2 = bit_filter(co2_list, idx, "co2")
     co2_list = list(filter(lambda x: x[idx] == bit_co2, co2_list))
     idx += 1
