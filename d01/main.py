@@ -9,6 +9,7 @@ data = [int(i.strip()) for i in data]
 def pairwise_diff(x):
     return [j - i for i, j in zip(x, x[1:])]
 
+
 increases = sum(diff > 0 for diff in pairwise_diff(data))
 print(increases)
 

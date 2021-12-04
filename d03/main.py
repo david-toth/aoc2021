@@ -40,6 +40,7 @@ def bit_filter(digits, index, rating_type):
     else:
         return min(counts, key=counts.get)
 
+
 # Find oxygen rating
 idx = 0
 o2_list = binary_digits

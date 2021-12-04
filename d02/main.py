@@ -6,6 +6,7 @@ def parse_input(filename):
     file.close()
     return data
 
+
 positions = parse_input("input.txt")
 
 # Part 1

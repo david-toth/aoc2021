@@ -11,6 +11,7 @@ def check_bingo(card, numbers):
             return True
     return False
 
+
 file = open("input.txt", "r")
 lines = file.readlines()
 file.close()
@@ -35,6 +36,7 @@ def play_part1(boards, numbers):
             if (check_bingo(board, called)):
                 return board, called
 
+
 winning_board, called_numbers = play_part1(boards, numbers)
 last_number = called_numbers[-1]
 uncalled_nums_in_board = np.isin(winning_board, called_numbers, invert=True)
@@ -49,6 +51,7 @@ def play_part2(boards, numbers):
                 del boards[i]
                 if len(boards) == 1:
                     return boards[0], called
+
 
 last_board, called_numbers = play_part2(boards, numbers)
 last_number = called_numbers[-1]
