@@ -8,7 +8,7 @@ def parse_input(filename):
 
 positions = parse_input("input.txt")
 
-#------- Part 1
+# Part 1
 horizontal = 0
 depth = 0
 for i in positions:
@@ -21,7 +21,7 @@ for i in positions:
 
 print(horizontal * depth)
 
-#--------- Part 2
+# Part 2
 horizontal = 0
 aim = 0
 depth = 0
