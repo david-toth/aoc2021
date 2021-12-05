@@ -46,9 +46,9 @@ print(last_number * sum(winning_board[uncalled_nums_in_board]))
 def play_part2(boards, numbers):
     for i in range(4, len(numbers)):
         called = numbers[:i+1]
-        for i, board in enumerate(boards):
+        for j, board in enumerate(boards):
             if (check_bingo(board, called)):
-                del boards[i]
+                del boards[j]
                 if len(boards) == 1:
                     return boards[0], called
 
