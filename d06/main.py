@@ -7,7 +7,7 @@ data = list(map(int, lines[0].strip().split(",")))
 
 
 def count_fish(initial_state, days):
-    copy_state = initial_state
+    copy_state = Counter(initial_state)
     for day in range(days):
         tmp_count = defaultdict(int)
         for i, j in copy_state.items():
