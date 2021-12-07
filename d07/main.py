@@ -15,12 +15,8 @@ def modified_fuel_intake(x):
 
 
 # Part one solution 
-min_fuel = int(1e9)
-for i in range(data.max() + 1):
-    distance = absolute_distance(data, i)
-    if distance < min_fuel:
-        min_fuel = distance
-print(min_fuel)
+median = np.median(data)
+print(absolute_distance(data, median))
 
 # Part two solution
 min_fuel = int(1e9)
