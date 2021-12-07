@@ -1,24 +1,32 @@
-from collections import Counter, defaultdict
+import numpy as np
 
+# Load data
 file = open("input.txt", "r")
 lines = file.readlines()
 file.close()
 data = list(map(int, lines[0].strip().split(",")))
 
+# Initial counts
+initial_state = np.zeros(9)
+initial_state[:6] = np.bincount(data)
 
-def count_fish(initial_state, days):
-    copy_state = Counter(initial_state)
-    for day in range(days):
-        tmp_count = defaultdict(int)
-        for i, j in copy_state.items():
-            if (i == 0):
-                tmp_count[6] += j
-                tmp_count[8] += j
-            else:
-                tmp_count[i - 1] += j
-        copy_state = tmp_count
-    return sum(copy_state.values())
+# Transition from i -> j given by X_{i, j}
+transition_matrix = np.array([
+    
+    [0, 0, 0, 0, 0, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    
+]).astype(float)
 
-
-print(count_fish(data, 80))
-print(count_fish(data, 256))
+# Solution given by \pi_0 X^n
+day_80 = np.sum(initial_state @ np.linalg.matrix_power(transition_matrix, 80))
+day_256 = np.sum(initial_state @ np.linalg.matrix_power(transition_matrix, 256))
+print(day_80)
+print(day_256)
