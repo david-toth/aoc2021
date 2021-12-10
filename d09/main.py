@@ -12,7 +12,6 @@ right = (0, 1)
 total = 0
 nrows = len(data)
 ncols = len(data[0])
-grid = [["."] * ncols for i in range(nrows)]
 
 for row in range(nrows):
     for col in range(ncols):
@@ -25,7 +24,6 @@ for row in range(nrows):
         point = data[row][col]
         if (point < min(neighbors)):
             total += point + 1
-            grid[row][col] = "X"
 print(total)
 
 basin_sizes = []
