@@ -41,6 +41,8 @@ def increment_neighbors(x):
                 x[i][j] = 0
     return
 
+
+# Part 1
 data = load_data()
 total = 0
 for i in range(100):
@@ -51,7 +53,7 @@ for i in range(100):
             break
     total += check_flashes(data)
 print(total)
-
+# Part 2
 data = load_data()
 it = 1
 while True:
