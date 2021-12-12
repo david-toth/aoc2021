@@ -1,15 +1,16 @@
-def load_data():
-    with open("input.txt", "r") as file:
-        lines = file.readlines()
-        x = [[int(i) for i in line.strip()] for line in lines]
-    return x
-
-neighbors = [
+NEIGHBORS = [
     (1, 0), (-1, 0),
     (0, 1), (0, -1),
     (1, 1), (1, -1),
     (-1, 1), (-1, -1)
 ]
+
+
+def load_data():
+    with open("input.txt", "r") as file:
+        lines = file.readlines()
+        x = [[int(i) for i in line.strip()] for line in lines]
+    return x
 
 
 def increment(x):
@@ -32,7 +33,7 @@ def increment_neighbors(x):
     for i in range(len(x)):
         for j in range(len(x[i])):
             if (x[i][j] > 9):
-                for ii, jj in neighbors:
+                for ii, jj in NEIGHBORS:
                     iii = i + ii
                     jjj = j + jj
                     if (0 <= iii < len(x) and 0 <= jjj < len(x[i])):
@@ -41,6 +42,8 @@ def increment_neighbors(x):
                 x[i][j] = 0
     return
 
+
+# Part 1
 data = load_data()
 total = 0
 for i in range(100):
@@ -52,6 +55,7 @@ for i in range(100):
     total += check_flashes(data)
 print(total)
 
+# Part 2
 data = load_data()
 it = 1
 while True:
