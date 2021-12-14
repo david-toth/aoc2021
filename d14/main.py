@@ -4,7 +4,7 @@ with open("input.txt", "r") as f:
     lines = list(map(str.strip, f.readlines()))
     template = lines[0]
     rules = {}
-    for line in lines:
+    for line in lines[2:]:
         i, j = line.split(" -> ")
         rules[i] = j
 
@@ -31,4 +31,3 @@ def count_elements(template, rules, it):
 
 print(count_elements(template, rules, 10))
 print(count_elements(template, rules, 40))
-    
