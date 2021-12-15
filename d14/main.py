@@ -20,12 +20,12 @@ def count_elements(template, rules, it):
             new_pairs[p[0] + insertion] += pairs[p]
             new_pairs[insertion + p[1]] += pairs[p]
         pairs = new_pairs
-    counts0 = defaultdict(int)
-    counts1 = defaultdict(int)
+    c0 = defaultdict(int)
+    c1 = defaultdict(int)
     for k, v in pairs.items():
-        counts0[k[0]] += v
-        counts1[k[1]] += v
-    final = {i: max(counts0[i], counts1[i]) for i in set(counts0).union(set(counts1))}
+        c0[k[0]] += v
+        c1[k[1]] += v
+    final = {i: max(c0[i], c1[i]) for i in set(c0) | set(c1)}
     return max(final.values()) - min(final.values())
 
 
